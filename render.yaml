@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: tutorisk-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node src/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: tutorisk-db
+          property: connectionString
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: VIDEO_SIGNING_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://tutorisk-site.netlify.app
+      - key: STRIPE_SECRET_KEY
+        value: sk_test_REMPLACEZ
+      - key: STRIPE_WEBHOOK_SECRET
+        value: whsec_REMPLACEZ
+      - key: PROTECTED_MEDIA_DIR
+        value: /tmp/tutorisk-media
+
+databases:
+  - name: tutorisk-db
+    plan: free
+    databaseName: tutorisk
