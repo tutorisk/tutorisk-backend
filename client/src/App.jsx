@@ -376,9 +376,9 @@ function Navbar({page,setPage,user,onLogin,onLogout}){
 
   function nav(id){ setPage(id); setMenu(false); setActivitesOpen(false); }
 
-  return <nav style={{background:"#fff",position:"sticky",top:0,zIndex:200,boxShadow:"0 1px 12px rgba(0,0,0,.08)",borderBottom:"1px solid #F0E0E0"}}>
+  return <nav style={{background:"#fff",position:"sticky",top:0,zIndex:200,boxShadow:"0 1px 12px rgba(0,0,0,.08)",borderBottom:"1px solid #E2E8F0"}}>
     {/* Bandeau supérieur — très fin, contacts rapides */}
-    {!isMobile&&<div style={{background:"#F8FAFC",color:"#64748B",fontSize:11,padding:"5px 2rem",display:"flex",justifyContent:"space-between",alignItems:"center",borderBottom:"1px solid #E2E8F0"}}>
+    {!isMobile&&<div style={{background:"#fff",color:"#64748B",fontSize:11,padding:"5px 2rem",display:"flex",justifyContent:"space-between",alignItems:"center",borderBottom:"1px solid #E2E8F0"}}>
       <span>Le spécialiste de la formation en gestion des risques · Depuis 2002</span>
       <div style={{display:"flex",gap:"1.5rem"}}>
         <a href="mailto:contact@tutorisk.com" style={{color:"#64748B",textDecoration:"none"}}>✉ contact@tutorisk.com</a>
