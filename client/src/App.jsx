@@ -700,6 +700,15 @@ function HomePage({onCatalog,onLogin,user,api,setPage}){
 
       <div style={{maxWidth:1100,margin:"0 auto",width:"100%",padding:isMobile?"2.5rem 1.25rem":"4rem 2rem",display:"grid",gridTemplateColumns:isMobile?"1fr":"1fr 1fr",gap:"2.5rem",alignItems:"center",position:"relative",zIndex:2}}>
         <div>
+          <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:"1.5rem"}}>
+            <div style={{background:"#fff",borderRadius:14,padding:8,display:"flex",boxShadow:"0 8px 24px rgba(0,0,0,.35)"}}>
+              <Logo size={isMobile?44:56}/>
+            </div>
+            <div>
+              <div style={{fontSize:isMobile?22:26,fontWeight:900,color:"#F8FAFC",letterSpacing:"-.5px",lineHeight:1}}>TutoRisk</div>
+              <div style={{fontSize:11,color:"#64748B",letterSpacing:".5px",marginTop:3}}>Prévention des risques depuis 2002</div>
+            </div>
+          </div>
           <div className="tr-hero-tag" style={{display:"inline-flex",alignItems:"center",gap:6,background:"rgba(204,21,21,.2)",border:"1px solid rgba(204,21,21,.45)",borderRadius:20,fontSize:11,padding:"4px 14px",marginBottom:"1.5rem",color:"#FF9999",letterSpacing:".8px",textTransform:"uppercase",fontWeight:700}}>
             ⚡ Formation Santé &amp; Sécurité au Travail
           </div>
