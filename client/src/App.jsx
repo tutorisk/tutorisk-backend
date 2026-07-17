@@ -256,18 +256,6 @@ function LoginModal({onLogin,onClose,api}){
   const [loading,setLoading]=useState(false);
   const roles=[{k:"apprenant",l:"Apprenant",d:"Accéder à mes formations"},{k:"charge",l:"Chargé de formation",d:"Suivre mes collaborateurs"},{k:"formateur",l:"Formateur",d:"Gérer mes sessions"},{k:"pedagogue",l:"Pédagogue",d:"Créer des modules"}];
 
-  // ⚠️ PROVISOIRE — boutons de connexion rapide pour les démonstrations et les tests.
-  // Utilisent les comptes créés par le script de seed du backend (mot de passe
-  // identique pour tous : Demo1234!). À retirer avant une mise en production réelle.
-  const DEMO_ACCOUNTS=[
-    {role:"admin",label:"Administrateur",email:"s.martin@tutorisk.com",icon:"🛡️"},
-    {role:"pedagogue",label:"Pédagogue",email:"m.dubois@tutorisk.com",icon:"📝"},
-    {role:"formateur",label:"Formateur",email:"c.leroy@tutorisk.com",icon:"🎓"},
-    {role:"charge",label:"Chargé de formation",email:"b.dupont@acmegroup.fr",icon:"🏢"},
-    {role:"apprenant",label:"Apprenant",email:"j.bernard@acmegroup.fr",icon:"👤"},
-  ];
-  const [quickLoadingRole,setQuickLoadingRole]=useState(null);
-
   useEffect(()=>{
     if(!referralCode.trim()){ setReferralCheck(null); return; }
     let active=true;
@@ -278,19 +266,6 @@ function LoginModal({onLogin,onClose,api}){
     },400);
     return ()=>{ active=false; clearTimeout(t); };
   },[referralCode]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  async function quickLogin(account){
-    setError(""); setQuickLoadingRole(account.role);
-    try{
-      const data=await api.post("/api/auth/login",{email:account.email,password:"Demo1234!"});
-      onLogin(data.user,data.accessToken);
-      onClose();
-    } catch(err){
-      setError("Connexion rapide impossible — vérifiez que le backend est démarré et que la base a été initialisée (npm run seed).");
-    } finally {
-      setQuickLoadingRole(null);
-    }
-  }
 
   async function submit(){
     setError(""); setLoading(true);
@@ -355,24 +330,6 @@ function LoginModal({onLogin,onClose,api}){
       <BtnR onClick={submit} style={{width:"100%",padding:11,fontSize:14,borderRadius:8,opacity:(loading||(tab==="register"&&!consentAccepted))?.6:1}} disabled={tab==="register"&&!consentAccepted}>
         {loading?"Veuillez patienter…":tab==="login"?"Se connecter →":"Créer mon compte →"}
       </BtnR>
-
-      <div style={{display:"flex",alignItems:"center",gap:10,margin:"1.25rem 0 .75rem"}}>
-        <div style={{flex:1,height:1,background:"#EEE"}}/>
-        <span style={{fontSize:11,color:"#aaa",fontWeight:600}}>Accès rapide (démo)</span>
-        <div style={{flex:1,height:1,background:"#EEE"}}/>
-      </div>
-      <div style={{background:"#FFF8E1",border:"1px solid #FFE082",borderRadius:7,padding:"6px 10px",fontSize:11,color:"#E65100",marginBottom:8,textAlign:"center"}}>
-        ⚠️ Provisoire — à retirer avant mise en production
-      </div>
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:6}}>
-        {DEMO_ACCOUNTS.map(acc=>
-          <button key={acc.role} onClick={()=>quickLogin(acc)} disabled={quickLoadingRole!==null}
-            style={{display:"flex",alignItems:"center",gap:7,border:"1px solid #E0E0E0",borderRadius:7,padding:"8px 10px",cursor:"pointer",background:"#FAFAFA",fontSize:12,color:"#333",fontWeight:600,opacity:quickLoadingRole&&quickLoadingRole!==acc.role?.5:1}}>
-            <span style={{fontSize:14}}>{acc.icon}</span>
-            {quickLoadingRole===acc.role?"Connexion…":acc.label}
-          </button>
-        )}
-      </div>
     </div>
   </div>;
 }
