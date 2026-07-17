@@ -203,8 +203,22 @@ function useIsMobile(breakpoint=768){
   return isMobile;
 }
 
+// Marque seule (le rond au T) — pour les espaces contraints
 function Logo({size=36}){
-  return <img src="data:image/png;base64,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" width={size} height={size} alt="TutoRisk" style={{flexShrink:0,display:"block",objectFit:"contain"}}/>;
+  return <img src="/logo-mark.png" width={size} height={size} alt="TutoRisk"
+    style={{flexShrink:0,display:"block",objectFit:"contain"}}/>;
+}
+
+// Lockup horizontal (rond + mot) — navigation
+function LogoLockup({height=38}){
+  return <img src="/logo-horizontal.png" alt="TutoRisk"
+    style={{height,width:"auto",flexShrink:0,display:"block",objectFit:"contain"}}/>;
+}
+
+// Logo complet empilé (rond + mot dessous) — hero
+function LogoStacked({width=120}){
+  return <img src="/logo-tutorisk.png" alt="TutoRisk"
+    style={{width,height:"auto",display:"block",objectFit:"contain"}}/>;
 }
 
 function PB({value,color="#CC1515"}){
@@ -364,20 +378,19 @@ function Navbar({page,setPage,user,onLogin,onLogout}){
 
   return <nav style={{background:"#fff",position:"sticky",top:0,zIndex:200,boxShadow:"0 1px 12px rgba(0,0,0,.08)",borderBottom:"1px solid #F0E0E0"}}>
     {/* Bandeau supérieur — très fin, contacts rapides */}
-    {!isMobile&&<div style={{background:"#0F1923",color:"rgba(255,255,255,.65)",fontSize:11,padding:"4px 2rem",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+    {!isMobile&&<div style={{background:"#F8FAFC",color:"#64748B",fontSize:11,padding:"5px 2rem",display:"flex",justifyContent:"space-between",alignItems:"center",borderBottom:"1px solid #E2E8F0"}}>
       <span>Le spécialiste de la formation en gestion des risques · Depuis 2002</span>
       <div style={{display:"flex",gap:"1.5rem"}}>
-        <a href="mailto:contact@tutorisk.com" style={{color:"rgba(255,255,255,.65)",textDecoration:"none"}}>✉ contact@tutorisk.com</a>
-        <a href="https://linkedin.com/company/tutorisk" target="_blank" rel="noreferrer" style={{color:"rgba(255,255,255,.65)",textDecoration:"none"}}>LinkedIn</a>
+        <a href="mailto:contact@tutorisk.com" style={{color:"#64748B",textDecoration:"none"}}>✉ contact@tutorisk.com</a>
+        <a href="https://linkedin.com/company/tutorisk" target="_blank" rel="noreferrer" style={{color:"#64748B",textDecoration:"none"}}>LinkedIn</a>
       </div>
     </div>}
 
     {/* Barre principale */}
     <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:isMobile?"0 .875rem":"0 2rem",height:62,maxWidth:1300,margin:"0 auto",width:"100%"}}>
       {/* Logo */}
-      <div style={{display:"flex",alignItems:"center",gap:8,cursor:"pointer",flexShrink:0}} onClick={()=>nav("home")}>
-        <Logo size={isMobile?30:36}/>
-        <span style={{color:"#CC1515",fontSize:isMobile?17:21,fontWeight:900,letterSpacing:"-.3px"}}>TutoRisk</span>
+      <div style={{display:"flex",alignItems:"center",cursor:"pointer",flexShrink:0}} onClick={()=>nav("home")}>
+        <LogoLockup height={isMobile?30:38}/>
       </div>
 
       {/* Nav desktop */}
@@ -655,6 +668,8 @@ function HomePage({onCatalog,onLogin,user,api,setPage}){
       .tr-btn-outline{transition:all .18s;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.55);border-radius:8px;padding:13px 28px;font-size:15px;font-weight:700;cursor:pointer;backdrop-filter:blur(6px);}
       .tr-btn-outline:hover{background:rgba(255,255,255,.2);border-color:#fff;}
       .tr-btn-red{transition:all .18s;background:#CC1515;color:#fff;border:none;border-radius:8px;padding:13px 28px;font-size:15px;font-weight:800;cursor:pointer;}
+      .tr-btn-ghost{transition:all .18s;background:transparent;color:#374151;border:1.5px solid #E2E8F0;border-radius:8px;padding:13px 28px;font-size:15px;font-weight:700;cursor:pointer;}
+      .tr-btn-ghost:hover{background:#F8FAFC;border-color:#CC1515;color:#CC1515;}
       .tr-btn-red:hover{background:#B01010;transform:translateY(-1px);box-shadow:0 6px 20px rgba(204,21,21,.3);}
       .tr-nav-link{transition:color .15s;}
       .tr-nav-link:hover{color:#CC1515!important;}
@@ -689,62 +704,51 @@ function HomePage({onCatalog,onLogin,user,api,setPage}){
     <BannerStrip api={api} page="home"/>
 
     {/* ── HERO ───────────────────────────────────── */}
-    <section style={{background:"#0F1923",color:"#fff",position:"relative",overflow:"hidden",minHeight:isMobile?500:560,display:"flex",alignItems:"center"}}>
+    <section style={{background:"#fff",color:"#374151",position:"relative",overflow:"hidden",minHeight:isMobile?500:560,display:"flex",alignItems:"center",borderBottom:"1px solid #E2E8F0"}}>
       {/* Motif géométrique SVG */}
-      <svg aria-hidden="true" style={{position:"absolute",inset:0,width:"100%",height:"100%",opacity:.07,pointerEvents:"none"}} xmlns="http://www.w3.org/2000/svg">
+      <svg aria-hidden="true" style={{position:"absolute",inset:0,width:"100%",height:"100%",opacity:.04,pointerEvents:"none"}} xmlns="http://www.w3.org/2000/svg">
         <defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0L0 60M30 0L0 30M60 30L30 60" stroke="#CC1515" strokeWidth="1" fill="none"/></pattern></defs>
         <rect width="100%" height="100%" fill="url(#grid)"/>
       </svg>
-      {/* Halo rouge */}
-      <div style={{position:"absolute",top:-120,right:-120,width:500,height:500,background:"radial-gradient(circle,rgba(204,21,21,.22) 0%,transparent 70%)",pointerEvents:"none"}}/>
-
       <div style={{maxWidth:1100,margin:"0 auto",width:"100%",padding:isMobile?"2.5rem 1.25rem":"4rem 2rem",display:"grid",gridTemplateColumns:isMobile?"1fr":"1fr 1fr",gap:"2.5rem",alignItems:"center",position:"relative",zIndex:2}}>
         <div>
-          <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:"1.5rem"}}>
-            <div style={{background:"#fff",borderRadius:14,padding:8,display:"flex",boxShadow:"0 8px 24px rgba(0,0,0,.35)"}}>
-              <Logo size={isMobile?44:56}/>
-            </div>
-            <div>
-              <div style={{fontSize:isMobile?22:26,fontWeight:900,color:"#F8FAFC",letterSpacing:"-.5px",lineHeight:1}}>TutoRisk</div>
-              <div style={{fontSize:11,color:"#64748B",letterSpacing:".5px",marginTop:3}}>Prévention des risques depuis 2002</div>
-            </div>
-          </div>
-          <div className="tr-hero-tag" style={{display:"inline-flex",alignItems:"center",gap:6,background:"rgba(204,21,21,.2)",border:"1px solid rgba(204,21,21,.45)",borderRadius:20,fontSize:11,padding:"4px 14px",marginBottom:"1.5rem",color:"#FF9999",letterSpacing:".8px",textTransform:"uppercase",fontWeight:700}}>
+          <div style={{marginBottom:"1.5rem"}}><LogoStacked width={isMobile?88:120}/></div>
+          <div className="tr-hero-tag" style={{display:"inline-flex",alignItems:"center",gap:6,background:"#FFF5F5",border:"1px solid rgba(204,21,21,.25)",borderRadius:20,fontSize:11,padding:"4px 14px",marginBottom:"1.5rem",color:"#CC1515",letterSpacing:".8px",textTransform:"uppercase",fontWeight:700}}>
             ⚡ Formation Santé &amp; Sécurité au Travail
           </div>
-          <h1 className="tr-hero-title" style={{fontSize:isMobile?32:48,fontWeight:900,lineHeight:1.12,marginBottom:"1.25rem",color:"#F8FAFC",letterSpacing:"-.5px"}}>
+          <h1 className="tr-hero-title" style={{fontSize:isMobile?32:48,fontWeight:900,lineHeight:1.12,marginBottom:"1.25rem",color:"#0F1923",letterSpacing:"-.5px"}}>
             Formez vos équipes à la{" "}
-            <span style={{color:"#FF6B6B",position:"relative"}}>prévention des risques</span>
+            <span style={{color:"#CC1515",position:"relative"}}>prévention des risques</span>
             <br/>en toute conformité
           </h1>
-          <p className="tr-hero-sub" style={{fontSize:16,color:"#94A3B8",maxWidth:480,lineHeight:1.7,marginBottom:"2rem"}}>
+          <p className="tr-hero-sub" style={{fontSize:16,color:"#64748B",maxWidth:480,lineHeight:1.7,marginBottom:"2rem"}}>
             La plateforme e-learning dédiée aux professionnels de la sécurité, du droit du travail et de la gestion des risques naturels et industriels.
           </p>
           <div className="tr-hero-ctas" style={{display:"flex",gap:".875rem",flexWrap:"wrap"}}>
-            <button className="tr-btn-white" onClick={onCatalog}>Découvrir le catalogue →</button>
-            {!user&&<button className="tr-btn-outline" onClick={onLogin}>Créer un compte gratuit</button>}
+            <button className="tr-btn-red" onClick={onCatalog}>Découvrir le catalogue →</button>
+            {!user&&<button className="tr-btn-ghost" onClick={onLogin}>Créer un compte gratuit</button>}
           </div>
-          <div style={{display:"flex",gap:"1.5rem",marginTop:"2rem",paddingTop:"1.5rem",borderTop:"1px solid rgba(255,255,255,.1)",flexWrap:"wrap"}}>
+          <div style={{display:"flex",gap:"1.5rem",marginTop:"2rem",paddingTop:"1.5rem",borderTop:"1px solid #E2E8F0",flexWrap:"wrap"}}>
             {[["✅","Attestations valides CARSAT"],["⚡","Accès immédiat"],["🔒","Données hébergées en France"]].map(([ic,t])=>
               <div key={t} style={{fontSize:12,color:"#64748B",display:"flex",alignItems:"center",gap:5}}><span>{ic}</span>{t}</div>)}
           </div>
         </div>
         {!isMobile&&<div style={{display:"flex",justifyContent:"center"}}>
           {/* Fausse carte "module en cours" */}
-          <div style={{background:"#1E293B",border:"1px solid rgba(255,255,255,.1)",borderRadius:16,padding:"1.5rem",width:320,boxShadow:"0 24px 60px rgba(0,0,0,.5)"}}>
+          <div style={{background:"#fff",border:"1px solid #E2E8F0",borderRadius:16,padding:"1.5rem",width:320,boxShadow:"0 20px 50px rgba(15,25,35,.12)"}}>
             <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:"1rem"}}>
               <div style={{width:38,height:38,borderRadius:9,background:"linear-gradient(135deg,#CC1515,#FF6B6B)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18}}>🔥</div>
-              <div><div style={{fontSize:13,fontWeight:700,color:"#F1F5F9"}}>Sécurité incendie — Niv. 1</div><div style={{fontSize:11,color:"#64748B"}}>Chapitre 2 sur 4</div></div>
+              <div><div style={{fontSize:13,fontWeight:700,color:"#0F1923"}}>Sécurité incendie — Niv. 1</div><div style={{fontSize:11,color:"#94A3B8"}}>Chapitre 2 sur 4</div></div>
             </div>
-            <div style={{background:"#0F1923",borderRadius:8,padding:".875rem",marginBottom:"1rem"}}>
-              <div style={{fontSize:11,color:"#64748B",marginBottom:6,textTransform:"uppercase",letterSpacing:".5px"}}>Progression globale</div>
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}><span style={{fontSize:13,color:"#F1F5F9"}}>52%</span><span style={{fontSize:11,color:"#94A3B8"}}>4 / 8 contenus</span></div>
-              <div style={{height:6,background:"#1E293B",borderRadius:3,overflow:"hidden"}}><div style={{width:"52%",height:"100%",background:"linear-gradient(90deg,#CC1515,#FF6B6B)",borderRadius:3}}/></div>
+            <div style={{background:"#F8FAFC",border:"1px solid #E2E8F0",borderRadius:8,padding:".875rem",marginBottom:"1rem"}}>
+              <div style={{fontSize:11,color:"#94A3B8",marginBottom:6,textTransform:"uppercase",letterSpacing:".5px",fontWeight:600}}>Progression globale</div>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}><span style={{fontSize:13,color:"#0F1923",fontWeight:700}}>52%</span><span style={{fontSize:11,color:"#94A3B8"}}>4 / 8 contenus</span></div>
+              <div style={{height:6,background:"#E2E8F0",borderRadius:3,overflow:"hidden"}}><div style={{width:"52%",height:"100%",background:"linear-gradient(90deg,#CC1515,#FF6B6B)",borderRadius:3}}/></div>
             </div>
             {[["🎬","Vidéo : causes d'incendie","✅"],["📄","Fiche prévention PDF","✅"],["✅","QCM — connaissances","⏳"],["🔒","Procédures d'évacuation","🔒"]].map(([ic,t,s])=>
-              <div key={t} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 0",borderBottom:"1px solid rgba(255,255,255,.05)"}}>
+              <div key={t} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 0",borderBottom:"1px solid #F1F5F9"}}>
                 <span style={{fontSize:13}}>{ic}</span>
-                <span style={{fontSize:12,flex:1,color:s==="🔒"?"#475569":"#CBD5E1"}}>{t}</span>
+                <span style={{fontSize:12,flex:1,color:s==="🔒"?"#CBD5E1":"#475569"}}>{t}</span>
                 <span style={{fontSize:12}}>{s}</span>
               </div>)}
             <button onClick={onCatalog} style={{marginTop:"1rem",width:"100%",background:"#CC1515",color:"#fff",border:"none",borderRadius:8,padding:"10px",fontSize:12,fontWeight:700,cursor:"pointer"}}>
@@ -4632,8 +4636,7 @@ export default function App(){
         {/* Colonne marque */}
         <div>
           <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:"1rem"}}>
-            <div style={{width:32,height:32,borderRadius:"50%",background:"#fff",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Logo size={24}/></div>
-            <span style={{color:"#fff",fontSize:18,fontWeight:900,letterSpacing:"-.2px"}}>TutoRisk</span>
+            <div style={{background:"#fff",borderRadius:10,padding:"8px 12px",display:"inline-flex",alignItems:"center"}}><LogoLockup height={30}/></div>
           </div>
           <p style={{fontSize:12.5,lineHeight:1.7,marginBottom:"1rem"}}>Le spécialiste de la formation en gestion des risques depuis 2002.</p>
           <a href="https://linkedin.com/company/tutorisk" target="_blank" rel="noreferrer" style={{display:"inline-flex",alignItems:"center",gap:6,color:"rgba(255,255,255,.65)",fontSize:12,textDecoration:"none"}}>
